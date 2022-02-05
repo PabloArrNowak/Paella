@@ -5,7 +5,7 @@ Autores:
 * Javier Cano Salcedo
 * José Miguel Villacañas
 * Marta Croche Trigo, mcroche@ucm.es
-* Pablo Arredondo Nowak, pablarre@ucm.es
+* Pablo Arredondo Nowak, pablarre@ucm.es Hello funciona cuando escribo
 * Rocío Sanchez-Horcajuelo Lopez, rocisa08@ucm.es
 * Víctor Manuel Estremera Herranz, vestre01@ucm.es
 * Rodrigo Cabello Hernández , rodricab@ucm.es
