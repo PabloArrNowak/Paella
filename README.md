@@ -45,6 +45,7 @@ Personajes: 2
 1. Arquitectura base: 23 de febrero de 2022
 2. Ciclo de juego: 23 de marzo de 2022
 3. Release: 4 de mayo de 2022
+4. DLC: 1 de julio de 2022
 
 
  </td>
