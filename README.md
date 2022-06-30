@@ -81,11 +81,13 @@ Uno de ellos (host) abre un restaurante y espera al otro jugador (client), que b
 
 El host es la cocinera y comienza en la cocina, y el client es el camarero y comienza en el comedor.
 
-En el comedor, los clientes entran al restaurante y el camarero lleva los grupos a las mesas y apunta su pedido en la libreta de comandas. Las comandas aparecerán en la lista de comandas en la parte superior de la pantalla.
+En el comedor, los clientes y repartidores entran al restaurante y el camarero lleva los grupos a las mesas y apunta los pedidos en la libreta de comandas. Las comandas aparecerán en la lista de comandas en la parte superior de la pantalla.
 
 En la cocina, la cocinera empieza a preparar las paellas que ha pedido el camarero en las comandas. Coloca la paella en la encimera, le echa el arroz, recoge los ingredientes de la cinta, los procesa, los echa a la paella, la coloca en un fogón, y saca la paella en el momento preciso para que salga más rica. Selecciona cuál es la comanda que está haciendo para decirle al camarero a qué mesa tiene que llevar la paella cuando la coloque en la ventanilla.
 
-El camarero lleva las paellas a la mesa indicada y espera a que los clientes terminen. Entonces los echa amablemente por la puerta y recoge las paellas sucias y las mete al lavavajillas. Cuando salgan, la cocinera podría cogerlas y reutilizarlas para las siguientes paellas.
+Alternativamente, la cocinera prepara una paella echando arroz, los ingredientes procesados necesarios, y colocando la paella en el fogón, para vaciarla en una caja de takeaway. En las comandas, los números se pueden utilizar para indicar número de puesto del repartidor en la fila en lugar de número de mesa.
+
+El camarero lleva las paellas a la mesa o repartidor indicada/o y espera a que los clientes terminen. Entonces los echa amablemente por la puerta y recoge las paellas sucias y las mete al lavavajillas. Los repartidores saldrán por la puerta automáticamente. Cuando las paellas estén limpias, la cocinera podría cogerlas y reutilizarlas para los siguientes clientes.
 
 Este ciclo continuará hasta que se acabe la jornada. Momento en el que se pasa a una pantalla intermedia en la que los jugadores reciben las reviews que han dejado los clientes y serán mejores cuanto más clientes hayan atendido y mejor lo hayan hecho. Ahora el client espera a que el host continúe y comienzan la siguiente jornada.
 
@@ -154,6 +156,11 @@ La cocina contará con:
     * El jugador podrá coger una paellera o apilar una en su montón correspondiente (siempre y cuando esté limpia) según le convenga. 
 
 <img src="images_gdd/3pila.PNG">
+
+* **Pila de Cajas para Takeaway:**
+    * Ocupa 1 tile.  
+    * El jugador podrá coger una caja o apilar una en el montón (siempre y cuando esté vacía) según le convenga.
+    * No existe límite de cajas a obtener de la pila.
 
 
 * **Tabla de Procesamiento:** 
@@ -274,6 +281,13 @@ La paella podrá tener de 0 a 3 ingredientes, independientemente de que los clie
     * Si (Punt. Cocción - Penalización Temperatura) es un número negativo, el multiplicador de tamaño de la paellera no se aplicará.
 
 
+* **LLevar dos o tres Paellas:**
+
+    * Si se interactúa con una paella llevando ya una sobre la cabeza, se añade a la pila que el jugador lleva sobre la cabeza.
+    * Se puede llevar un máximo de 3 paellas apiladas por jugador.
+    * Al llevar más de una paella e interactuar con la basura o una caja de takeaway, se vaciará la primera paella (empezando desde arriba) con contenido a vaciar.
+
+
 ### **Comedor:**
 El comedor ocupará 20 x 11 tiles. Tanto el comedor como la cocina comparten varias mesas, un lavavajillas y la “puerta” que conecta, los cuales ya han sido explicados en la parte de Cocina.
 
@@ -359,6 +373,11 @@ Esta puntuación por servicio se sumará a la puntuación por la paella. Estas p
     * Si ya han terminado de comer, podrás volver a coger al grupo de comensales, para llevarlos encima hasta la puerta (los sprites resaltarán cuando pases el ratón por encima y la puerta, cuando cojas al grupo).
     * Cuando hayas “acompañado” al grupo de comensales a la puerta, las mesas quedarán sin limpiar, el camarero podrá interactuar con estas para recoger las paelleras sucias (las paellas resaltará cuando el jugador pase el ratón por encima).
 
+
+### **Repartidores:**
+Los repartidores no llegan en grupos, y se colocan en una segunda fila paralela a la de clientes a sentar. Estos repartidores reciben su paella en una caja de takeaway, y salen automáticamente por la puerta. No se pueden coger ni sentar, y sus pedidos no incluyen tamaño de paella, ya que las cajas son de tamaño único.
+
+
 ### **Comandas:**
 * Los jugadores podrán escribir comandas siempre que quieran. 
 * Al seleccionar el botón de Nueva Comanada (+) se desplegará un nuevo menú (libreta). 
@@ -366,7 +385,7 @@ Esta puntuación por servicio se sumará a la puntuación por la paella. Estas p
 * La comanda contará con varios botones con los que podrá podrá seleccionar:
     * El número de la mesa (el número se escribirá por teclado)
     * Apuntar una nueva paella
-    * Tamaño de la nueva paella
+    * Tamaño de la nueva paella, o icono de caja de takeaway
     * Los ingredientes que llevará
     * Cancelar comanda
     * Descartar la comanda (se crea una comanda en blanco)
@@ -494,6 +513,10 @@ Dependiendo del nivel de cocción de la paella (o de si se ha quedado fría o no
 
 Si la paella se ha quedado fría las anteriores partículas se sustituirán independientemente del nivel de cocción.
 
+### Cajas de Takeaway: <a name="cajasTakeaway"></a>
+
+Se muestran únicamente como abiertas (vacías), o cerradas (con paella dentro).
+
 ### Restaurante: <a name="restaurante"></a>
 Sprites ligados al entorno de juego:
 
@@ -513,6 +536,8 @@ De la cocina:
 * Lavavajillas
 * Mesa de Pila de Paelleras
 * Basura
+* Pila de paellas
+* Pila de cajas de takeaway
 
 Del comedor:
 * Pared
